@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets
 
 object KafkaProducerData {
 
-  val progressFile = "C:/tmp/kafka_progress/last_sent_id.txt"
+  val progressFile = "/tmp/kafka_progress/last_sent_id.txt"
   val BATCH_SIZE = 500
 
   def readLastSentId(): Int = {
@@ -32,7 +32,7 @@ object KafkaProducerData {
       .master("local[*]")
       .config("spark.sql.legacy.timeParserPolicy", "LEGACY")
       .getOrCreate()
-    val path ="C:\\Users\\JC\\kafka-proccess-team\\kafka-proccess\\src\\main\\Student_CVs\\students_CVs.csv"
+    val path ="/Users/ahmadistatieh/Downloads/ahmadNNU/mongo-LSH/src/main/Student_CVs/students_CVs.csv"
     val topic = "Data"
 
     val arrSchema = ArrayType(StringType)

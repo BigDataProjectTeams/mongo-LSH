@@ -7,7 +7,6 @@ object main {
 
   def main(args: Array[String]): Unit = {
 
-    System.setProperty("hadoop.home.dir", "C:\\hadoop")
 
     val spark = SparkSession.builder()
       .appName("Kafka Consumer -> Mongo")
@@ -37,7 +36,7 @@ object main {
         if (c > 0) MongoWriter.writeBatch(batchDF, mongoUri, dbName, collectionName)
       }
       .outputMode("append")
-      .option("checkpointLocation", "C:/tmp/spark_checkpoints/mongo_students_run5")
+      .option("checkpointLocation", "/tmp/spark_checkpoints/mongo_students_run5")
       .start()
 
     query.awaitTermination()
